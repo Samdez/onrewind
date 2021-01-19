@@ -15,7 +15,7 @@ query AllVideosQuery($limit: Int){
 `
 
 const Home = () => {
-  const { loading, error, data, fetchMore } = useQuery(GET_VIDEOS_QUERY, {
+  const { loading, error, data } = useQuery(GET_VIDEOS_QUERY, {
     variables: {
       offset: 0,
       limit: 5
@@ -32,9 +32,10 @@ const Home = () => {
       {data.allVideos.items.map(video => (
         <>
           <img src={video.poster} alt="" />
-          <p>{video.name}</p>)
+          <p>{video.name}</p>
         </>
-      ))
+      )
+      )
     }
     </div>
   );

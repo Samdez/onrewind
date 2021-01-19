@@ -1,15 +1,18 @@
 import styled  from 'styled-components';
 import {VscLibrary} from 'react-icons/vsc'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return ( 
     <HeaderContainer>
       <Logo>
+        <Link to='/home'>
         <VscLibrary/>
+        </Link>
       </Logo>
       <MenuItems>
-          <li>Funzone</li>
-          <li>Testimonials</li>
+          <Link to='/funzone'>Funzone</Link>
+          <Link to='/testimonials'>Testimonials</Link>
       </MenuItems>
     </HeaderContainer>
    );
