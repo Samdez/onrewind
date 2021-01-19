@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import App from './App';
 
 import { API_URL, HEADER } from './env'
@@ -23,23 +22,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-client
-  .query({
-    query: gql`
-    query {
-      allVideos {
-        cursor{
-          before
-          after
-        }
-        items {
-          name
-          id
-          poster
-        }
-      }
-    }
-    `
-  })
-  .then(result => console.log(result))
 
