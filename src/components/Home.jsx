@@ -1,44 +1,44 @@
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
-import { useEffect } from 'react';
+import styled from 'styled-components';
+import { GET_VIDEOS_QUERY } from './GraphQL/Queries';
 
-const GET_VIDEOS_QUERY = gql`
-query AllVideosQuery($limit: Int){ 
-  allVideos(limit: $limit) {
-   items {
-     name
-     id
-     poster
-   }
- }
-}
-`
+
 
 const Home = () => {
   const { loading, error, data } = useQuery(GET_VIDEOS_QUERY, {
     variables: {
-      offset: 0,
       limit: 5
     }
   })
-  useEffect(() => {
-    console.log(data);
-  }, [])
-
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
   return (
-    <div>
+    <HomeContainer>
       {data.allVideos.items.map(video => (
-        <>
+        <Card key={video.id}>
           <img src={video.poster} alt="" />
           <p>{video.name}</p>
-        </>
+        </Card>
       )
       )
     }
-    </div>
+    </HomeContainer>
   );
 }
+
+const HomeContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`
+
+const Card = styled.div`
+  /* max-width: 50%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  img{
+    max-width: 100%;
+  }
+`
 
 export default Home;
