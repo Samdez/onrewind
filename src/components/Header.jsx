@@ -6,7 +6,7 @@ const Header = () => {
   return ( 
     <HeaderContainer>
       <Logo>
-        <Link to='/home'>
+        <Link to='/'>
         <VscLibrary/>
         </Link>
       </Logo>

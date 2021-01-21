@@ -24,7 +24,10 @@ const Home = () => {
         {data.allVideos.items.map(video => (
           <Card key={video.id}>
             <Link to={`/${video.id}`}>
-              <img src={video.poster} alt="" />
+              <img 
+              src={video.poster ? video.poster : 'https://i.pinimg.com/474x/6b/83/6d/6b836dacee3c7de8b21cf8d30ac7f675.jpg'} 
+              alt="" 
+              />
               <p>{video.name}</p>
               {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
               )}
