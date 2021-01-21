@@ -12,7 +12,7 @@ const Header = () => {
       </Logo>
       <MenuItems>
           <Link to='/funzone'>Funzone</Link>
-          <Link to='/testimonials'>Testimonials</Link>
+          <Link to='/testimonials'>Testimoniales</Link>
       </MenuItems>
     </HeaderContainer>
    );

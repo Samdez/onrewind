@@ -12,7 +12,6 @@ const Home = () => {
     }
   })
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [videos, setVideos] = useState([])
 
   if (loading || isLoadingMore) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
@@ -22,46 +21,50 @@ const Home = () => {
         <Card key={video.id}>
           <img src={video.poster} alt="" />
           <p>{video.name}</p>
-          {video.Tags.map(tag => <p>{tag.name}</p>
+          {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
           )}
         </Card>
       )
       )
       }
+      {data.allVideos.cursor.after &&
       <button
-        onClick={async () => {
-          setIsLoadingMore(true);
-          const cursor = data.allVideos.cursor.after
-          await fetchMore({
-            variables: {
-              limit: 5,
-              after: cursor
-            },
-            updateQuery: (prev, { fetchMoreResult }) => {
-              return fetchMoreResult;
-            }
+      onClick={async () => {
+        setIsLoadingMore(true);
+        const cursor = data.allVideos.cursor.after
+        await fetchMore({
+          variables: {
+            limit: 5,
+            after: cursor
+          },
+          updateQuery: (prev, { fetchMoreResult }) => {
+            return fetchMoreResult;
           }
-          );
-          setIsLoadingMore(false);
-        }}
+        }
+        );
+        setIsLoadingMore(false);
+      }}
       >Next</button>
+    }
+      {data.allVideos.cursor.before &&
       <button
-        onClick={async () => {
-          setIsLoadingMore(true);
-          const cursor = data.allVideos.cursor.before
-          await fetchMore({
-            variables: {
-              limit: 5,
-              before: cursor
-            },
-            updateQuery: (prev, { fetchMoreResult }) => {
-              return fetchMoreResult;
-            }
+      onClick={async () => {
+        setIsLoadingMore(true);
+        const cursor = data.allVideos.cursor.before
+        await fetchMore({
+          variables: {
+            limit: 5,
+            before: cursor
+          },
+          updateQuery: (prev, { fetchMoreResult }) => {
+            return fetchMoreResult;
           }
-          );
-          setIsLoadingMore(false);
-        }}
+        }
+        );
+        setIsLoadingMore(false);
+      }}
       >Back</button>
+    }
     </HomeContainer>
   );
 }
