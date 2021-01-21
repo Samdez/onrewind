@@ -30,7 +30,7 @@ const Home = () => {
       }
       <button
         onClick={async () => {
-          setIsLoadingMore(true, () => console.log(isLoadingMore));
+          setIsLoadingMore(true);
           const cursor = data.allVideos.cursor.after
           await fetchMore({
             variables: {
@@ -44,7 +44,24 @@ const Home = () => {
           );
           setIsLoadingMore(false);
         }}
-      >Load more</button>
+      >Next</button>
+      <button
+        onClick={async () => {
+          setIsLoadingMore(true);
+          const cursor = data.allVideos.cursor.before
+          await fetchMore({
+            variables: {
+              limit: 5,
+              before: cursor
+            },
+            updateQuery: (prev, { fetchMoreResult }) => {
+              return fetchMoreResult;
+            }
+          }
+          );
+          setIsLoadingMore(false);
+        }}
+      >Back</button>
     </HomeContainer>
   );
 }
