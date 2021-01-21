@@ -11,8 +11,8 @@ const Header = () => {
         </Link>
       </Logo>
       <MenuItems>
-          <Link to='/funzone'>Funzone</Link>
-          <Link to='/testimonials'>Testimoniales</Link>
+          <Link to='/funzone' style={{ color: 'white'}}>Funzone</Link>
+          <Link to='/testimonials' style={{ color: 'white'}}>Testimoniales</Link>
       </MenuItems>
     </HeaderContainer>
    );
@@ -31,6 +31,9 @@ const HeaderContainer = styled.div`
 const Logo = styled.div`
   font-size: 2rem;
   padding: 5%;
+  svg{
+  color: white;
+  }
 `
 
 const MenuItems = styled.ul`

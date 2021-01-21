@@ -10,8 +10,8 @@ export const GlobalStyle = createGlobalStyle`
   li{
     list-style: none;
   }
-  a{
+  a, a:visited, a:hover, a:active{
     text-decoration: none;
-    color: white;
+    color: black;
   }
 `
