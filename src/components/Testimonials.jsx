@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/react-hooks";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { GET_VIDEOS_QUERY } from "./GraphQL/Queries";
 import { Card, HomeContainer } from "./Home";
 import NavButtons from "./NavButtons";
@@ -20,12 +21,14 @@ if (error) return <p>Error :(</p>;
     <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore}/>
     <HomeContainer> 
     {data.allVideos.items.map(video => (
+      <Link to={`/${video.id}`}>
       <Card key={video.id}>
         <img src={video.poster} alt="" />
         <p>{video.name}</p>
         {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
           )}
       </Card>
+      </Link>
     )
     )
   }

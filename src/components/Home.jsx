@@ -56,7 +56,7 @@ export const Card = styled.div`
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 1rem;
-  max-width: 100;
+  max-width: 100%;
   cursor: pointer;
   img {
     width: 100%;
