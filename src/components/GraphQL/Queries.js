@@ -8,7 +8,7 @@ query AllVideosQuery($limit: Int, $tags: String, $after: String, $before: String
       after
       before
     }
-    items {
+    items{
       name
       id
       poster
@@ -18,4 +18,17 @@ query AllVideosQuery($limit: Int, $tags: String, $after: String, $before: String
     }
    }
  }
+`
+
+export const GET_SINGLE_VIDEO_QUERY = gql`
+query GetSingleVideo($id: ID!){
+  video(id: $id){
+    id
+    name
+    poster
+    Tags{
+      name
+    }
+  }
+}
 `

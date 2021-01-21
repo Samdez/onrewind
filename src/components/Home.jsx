@@ -23,7 +23,7 @@ const Home = () => {
       <HomeContainer>
         {data.allVideos.items.map(video => (
           <Card key={video.id}>
-            <Link to='/'>
+            <Link to={`/${video.id}`}>
               <img src={video.poster} alt="" />
               <p>{video.name}</p>
               {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
