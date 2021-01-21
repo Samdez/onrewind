@@ -52,7 +52,7 @@ export const HomeContainer = styled.div`
 `
 
 export const Card = styled.div`
-  min-height: 30vh;
+  height: 60vh;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 1rem;

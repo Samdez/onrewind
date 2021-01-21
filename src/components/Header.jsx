@@ -19,7 +19,6 @@ const Header = () => {
 }
  
 const HeaderContainer = styled.div`
-  background-color: blue;
   height: 10vh;
   max-width: 100%;
   color: #fff;

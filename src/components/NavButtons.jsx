@@ -4,7 +4,7 @@ const NavButtons = ({ data, isLoadingMore, setIsLoadingMore, fetchMore }) => {
   return (
     <NavButtonsContainer>
       {data.allVideos.cursor.before &&
-        <button
+        <Button
           onClick={async () => {
             setIsLoadingMore(true);
             const cursor = data.allVideos.cursor.before
@@ -20,10 +20,10 @@ const NavButtons = ({ data, isLoadingMore, setIsLoadingMore, fetchMore }) => {
             );
             setIsLoadingMore(false);
           }}
-        >Back</button>
+        >Back</Button>
       }
       {data.allVideos.cursor.after &&
-        <button
+        <Button
           onClick={async () => {
             setIsLoadingMore(true);
             const cursor = data.allVideos.cursor.after
@@ -39,7 +39,7 @@ const NavButtons = ({ data, isLoadingMore, setIsLoadingMore, fetchMore }) => {
             );
             setIsLoadingMore(false);
           }}
-        >Next</button>
+        >Next</Button>
       }
     </NavButtonsContainer>
   );
@@ -54,6 +54,20 @@ const NavButtonsContainer = styled.div`
   button{
     height: 100%;
     min-width: 3vw;
+  }
+`
+
+const Button = styled.button`
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: #8306FF;
+  color: white;
+  transition: all 0.3s ease;
+  outline: none;
+  &:hover{
+    background-color: white;
+    color: #8306FF;
+    transform: scale(1.2);
   }
 `
 
