@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/react-hooks";
 import { useState } from "react";
+import { slideUp } from "../animations";
 import { GET_VIDEOS_QUERY } from "./GraphQL/Queries";
 import { Card, HomeContainer } from "./Home";
 import Loader from './Loader';
@@ -19,7 +20,11 @@ if (error) return <p>Error :(</p>;
   return (
     <>
     <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore}/>
-    <HomeContainer> 
+    <HomeContainer
+    variants={slideUp}
+    initial='hidden'
+    animate='show'
+    > 
     {data.allVideos.items.map(video => (
       <Card key={video.id} to={`/${video.id}`}>
         <img src={video.poster} alt="video-poster" />

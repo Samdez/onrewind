@@ -2,12 +2,12 @@ import styled  from 'styled-components';
 import {VscLibrary} from 'react-icons/vsc'
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { fadeIn } from '../animations';
+import { fadeInSlide } from '../animations';
 
 const Header = () => {
   return ( 
     <HeaderContainer
-      variants={fadeIn}
+      variants={fadeInSlide}
       initial='hidden'
       animate='show'
     >

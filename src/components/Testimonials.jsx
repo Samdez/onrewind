@@ -4,6 +4,7 @@ import Loader from './Loader';
 import { GET_VIDEOS_QUERY } from "./GraphQL/Queries";
 import { Card, HomeContainer } from "./Home";
 import NavButtons from "./NavButtons";
+import { slideUp } from "../animations";
 
 const Testimonials = () => {
   const { loading, error, data, fetchMore } = useQuery(GET_VIDEOS_QUERY, {
@@ -14,12 +15,16 @@ const Testimonials = () => {
   })
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-if (loading) return <Loader />;
+if (loading || isLoadingMore) return <Loader />;
 if (error) return <p>Error :(</p>;
   return ( 
     <>
     <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore}/>
-    <HomeContainer> 
+    <HomeContainer
+    variants={slideUp}
+    initial='hidden'
+    animate='show'
+    > 
     {data.allVideos.items.map(video => (
       <Card key={video.id} to={`/${video.id}`}>
         <img src={video.poster} alt="" />

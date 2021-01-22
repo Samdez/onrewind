@@ -9,7 +9,9 @@ export const GlobalStyle = createGlobalStyle`
     background: rgb(115,36,179);
     background: linear-gradient(90deg, rgba(115,36,179,1) 3%, rgba(92,79,79,1) 100%);
     color: white;
-    overflow: hidden;
+    &::-webkit-scrollbar{
+      display: none
+    }
   }
   li{
     list-style: none;

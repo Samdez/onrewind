@@ -1,4 +1,4 @@
-export const fadeIn = {
+export const fadeInSlide = {
   hidden: {
     opacity: 0,
     y: -50,
@@ -24,6 +24,19 @@ export const slideUp = {
     transition: {
       duration: 0.5,
       type: 'ease',
+    }
+  }
+};
+
+export const fadeIn = {
+  hidden: {
+    opacity: 0
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      type: 'ease'
     }
   }
 }

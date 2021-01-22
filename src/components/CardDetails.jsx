@@ -1,7 +1,10 @@
 import { useQuery } from "@apollo/react-hooks";
+import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { fadeIn } from "../animations";
 import { GET_SINGLE_VIDEO_QUERY } from "./GraphQL/Queries";
+import Loader from './Loader';
 
 const CardDetails = () => {
   const { id } = useParams();
@@ -11,11 +14,15 @@ const CardDetails = () => {
     }
   })
   console.log(data);
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   return (
     <CardDetailsPage>
-      <CardDetailsContainer>
+      <CardDetailsContainer
+      variants={fadeIn}
+      initial='hidden'
+      animate='show'
+      >
         <img src={data.video.poster ? data.video.poster : 'https://pbs.twimg.com/profile_images/452961105522872320/eFX_I4Nt.jpeg'} alt='card-detail' />
         <h4>{data.video.name}</h4>
         <TagsList>
@@ -34,7 +41,7 @@ display: flex;
 justify-content: center;
 `
 
-const CardDetailsContainer = styled.div`
+const CardDetailsContainer = styled(motion.div)`
   height: 90vh;
   max-width: 100%;
   margin: 2rem;
