@@ -1,7 +1,9 @@
 import { useQuery } from '@apollo/react-hooks';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { slideUp } from '../animations';
 import { GET_VIDEOS_QUERY } from './GraphQL/Queries';
 import NavButtons from './NavButtons';
 
@@ -20,7 +22,11 @@ const Home = () => {
   return (
     <>
       <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore} />
-      <HomeContainer>
+      <HomeContainer
+      variants={slideUp}
+      initial='hidden'
+      animate='show'
+      >
         {data.allVideos.items.map(video => (
           <Card key={video.id} to={`/${video.id}`}>
               <img 
@@ -39,7 +45,7 @@ const Home = () => {
   );
 }
 
-export const HomeContainer = styled.div`
+export const HomeContainer = styled(motion.div)`
   min-height: 80vh;
   padding: 0 1em;
   display: flex;

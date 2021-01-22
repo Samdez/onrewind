@@ -1,10 +1,16 @@
 import styled  from 'styled-components';
 import {VscLibrary} from 'react-icons/vsc'
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../animations';
 
 const Header = () => {
   return ( 
-    <HeaderContainer>
+    <HeaderContainer
+      variants={fadeIn}
+      initial='hidden'
+      animate='show'
+    >
       <Logo>
         <Link to='/'>
         <VscLibrary/>
@@ -18,7 +24,7 @@ const Header = () => {
    );
 }
  
-const HeaderContainer = styled.div`
+const HeaderContainer = styled(motion.div)`
   height: 10vh;
   max-width: 100%;
   color: #fff;
