@@ -64,6 +64,7 @@ const Button = styled.button`
   color: white;
   transition: all 0.3s ease;
   outline: none;
+  cursor: pointer;
   &:hover{
     background-color: white;
     color: #8306FF;

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { slideUp } from '../animations';
 import { GET_VIDEOS_QUERY } from './GraphQL/Queries';
 import NavButtons from './NavButtons';
+import Loader from './Loader'
 
 
 
@@ -17,7 +18,7 @@ const Home = () => {
   })
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  if (loading || isLoadingMore) return <p>Loading...</p>;
+  if (loading || isLoadingMore) return <Loader/>;
   if (error) return <p>Error :(</p>;
   return (
     <>

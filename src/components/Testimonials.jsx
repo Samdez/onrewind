@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/react-hooks";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Loader from './Loader';
 import { GET_VIDEOS_QUERY } from "./GraphQL/Queries";
 import { Card, HomeContainer } from "./Home";
 import NavButtons from "./NavButtons";
@@ -14,7 +14,7 @@ const Testimonials = () => {
   })
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-if (loading) return <p>Loading...</p>;
+if (loading) return <Loader />;
 if (error) return <p>Error :(</p>;
   return ( 
     <>

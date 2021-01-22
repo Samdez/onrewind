@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useState } from "react";
 import { GET_VIDEOS_QUERY } from "./GraphQL/Queries";
 import { Card, HomeContainer } from "./Home";
+import Loader from './Loader';
 import NavButtons from "./NavButtons";
 
 const Funzone = () => {
@@ -13,7 +14,7 @@ const Funzone = () => {
   })
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-if (loading) return <p>Loading...</p>;
+if (loading) return <Loader />;
 if (error) return <p>Error :(</p>;
   return (
     <>
