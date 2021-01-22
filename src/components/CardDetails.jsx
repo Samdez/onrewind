@@ -13,7 +13,6 @@ const CardDetails = () => {
       id: id
     }
   })
-  console.log(data);
   if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   return (
@@ -44,7 +43,7 @@ justify-content: center;
 const CardDetailsContainer = styled(motion.div)`
   height: 90vh;
   max-width: 100%;
-  margin: 2rem;
+  margin: 0 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

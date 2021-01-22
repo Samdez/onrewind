@@ -55,13 +55,14 @@ export const HomeContainer = styled(motion.div)`
 `
 
 export const Card = styled(Link)`
-  height: 40vh;
+  height: 50vh;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 1rem;
   min-width: 300px;
   flex: 1;
-  /* background-color: #e3dfdf; */
+  display: flex;
+  flex-direction: column;
   cursor: pointer;
   transition: all 0.3s ease;
   opacity: 1;
@@ -69,7 +70,11 @@ export const Card = styled(Link)`
     img {
       width: 100%;
       object-fit: cover;
-      max-height: 50%;
+      max-height: 45%;
+      transition: all 0.2s;
+      &:hover{
+        transform: scale(1.2)
+      }
     }
 `
 
