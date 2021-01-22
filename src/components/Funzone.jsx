@@ -21,14 +21,12 @@ if (error) return <p>Error :(</p>;
     <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore}/>
     <HomeContainer> 
     {data.allVideos.items.map(video => (
-      <Link to={`/${video.id}`}>
-      <Card key={video.id}>
+      <Card key={video.id} to={`/${video.id}`}>
         <img src={video.poster} alt="" />
         <p>{video.name}</p>
         {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
           )}
       </Card>
-      </Link>
     )
     )
   }

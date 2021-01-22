@@ -22,8 +22,8 @@ const Home = () => {
       <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore} />
       <HomeContainer>
         {data.allVideos.items.map(video => (
-          <Card key={video.id}>
-            <Link to={`/${video.id}`}>
+          <Card key={video.id} to={`/${video.id}`}>
+            {/* <Link > */}
               <img 
               src={video.poster ? video.poster : 'https://i.pinimg.com/474x/6b/83/6d/6b836dacee3c7de8b21cf8d30ac7f675.jpg'} 
               alt="" 
@@ -31,7 +31,7 @@ const Home = () => {
               <p>{video.name}</p>
               {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
               )}
-            </Link>
+            {/* </Link> */}
           </Card>
         )
         )
@@ -43,24 +43,29 @@ const Home = () => {
 
 export const HomeContainer = styled.div`
   min-height: 80vh;
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   grid-template-rows: 1fr 1fr;
   grid-column-gap: 1rem;
-  grid-row-gap: 5rem;
+  grid-row-gap: 5rem; */
   padding: 0 1em;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 `
 
-export const Card = styled.div`
+export const Card = styled(Link)`
   height: 60vh;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 1rem;
-  max-width: 100%;
+  /* max-width: 20%; */
+  min-width: 300px;
+  flex: 1;
   cursor: pointer;
   img {
     width: 100%;
-    height: 40vh;
+    /* height: 40vh; */
     object-fit: contain;
   }
 `
