@@ -24,7 +24,7 @@ if (error) return <p>Error :(</p>;
       <Card key={video.id} to={`/${video.id}`}>
         <img src={video.poster} alt="" />
         <p>{video.name}</p>
-        {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
+        {video.Tags.map(tag => <p key={tag.name}>#{tag.name}</p>
           )}
       </Card>
     )

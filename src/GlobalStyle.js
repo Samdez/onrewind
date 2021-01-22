@@ -6,9 +6,9 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    background: no-repeat ;
-    background-color: #8306FF;
-    background-size: cover;
+    background: rgb(115,36,179);
+    background: linear-gradient(90deg, rgba(115,36,179,1) 3%, rgba(92,79,79,1) 100%);
+    color: white;
   }
   li{
     list-style: none;
@@ -16,5 +16,8 @@ export const GlobalStyle = createGlobalStyle`
   a, a:visited, a:hover, a:active{
     text-decoration: none;
     color: white;
+  }
+  img{
+    display: block;
   }
 `

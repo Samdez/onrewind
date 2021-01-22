@@ -58,7 +58,7 @@ const NavButtonsContainer = styled.div`
 `
 
 const Button = styled.button`
-  border-radius: 50%;
+  border-radius: 30%;
   border: 1px solid white;
   background-color: #8306FF;
   color: white;

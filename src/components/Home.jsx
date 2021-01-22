@@ -23,15 +23,13 @@ const Home = () => {
       <HomeContainer>
         {data.allVideos.items.map(video => (
           <Card key={video.id} to={`/${video.id}`}>
-            {/* <Link > */}
               <img 
-              src={video.poster ? video.poster : 'https://i.pinimg.com/474x/6b/83/6d/6b836dacee3c7de8b21cf8d30ac7f675.jpg'} 
-              alt="" 
+              src={video.poster ? video.poster : 'https://pbs.twimg.com/profile_images/452961105522872320/eFX_I4Nt.jpeg'} 
+              alt="card-poster" 
               />
               <p>{video.name}</p>
-              {video.Tags.map(tag => <p key={tag.name}>{tag.name}</p>
+              {video.Tags.map(tag => <p key={tag.name}>#{tag.name}</p>
               )}
-            {/* </Link> */}
           </Card>
         )
         )
@@ -43,11 +41,6 @@ const Home = () => {
 
 export const HomeContainer = styled.div`
   min-height: 80vh;
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  grid-template-rows: 1fr 1fr;
-  grid-column-gap: 1rem;
-  grid-row-gap: 5rem; */
   padding: 0 1em;
   display: flex;
   justify-content: space-evenly;
@@ -55,19 +48,22 @@ export const HomeContainer = styled.div`
 `
 
 export const Card = styled(Link)`
-  height: 60vh;
+  height: 40vh;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 1rem;
-  /* max-width: 20%; */
   min-width: 300px;
   flex: 1;
+  /* background-color: #e3dfdf; */
   cursor: pointer;
-  img {
-    width: 100%;
-    /* height: 40vh; */
-    object-fit: contain;
-  }
+  transition: all 0.3s ease;
+  opacity: 1;
+  overflow: hidden;
+    img {
+      width: 100%;
+      object-fit: cover;
+      max-height: 50%;
+    }
 `
 
 export default Home;

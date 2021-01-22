@@ -16,11 +16,11 @@ const CardDetails = () => {
   return (
     <CardDetailsPage>
       <CardDetailsContainer>
-        <img src={data.video.poster} alt="" />
-        <p>{data.video.name}</p>
+        <img src={data.video.poster ? data.video.poster : 'https://pbs.twimg.com/profile_images/452961105522872320/eFX_I4Nt.jpeg'} alt='card-detail' />
+        <h4>{data.video.name}</h4>
         <TagsList>
         {data.video.Tags.map(tag => (
-          <p key={tag.name}>{tag.name}</p>
+          <p key={tag.name}>#{tag.name}</p>
           ))}
           </TagsList>
       </CardDetailsContainer>
@@ -35,7 +35,7 @@ justify-content: center;
 `
 
 const CardDetailsContainer = styled.div`
-  height: 80vh;
+  height: 90vh;
   max-width: 100%;
   margin: 2rem;
   display: flex;
@@ -46,6 +46,7 @@ const CardDetailsContainer = styled.div`
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   overflow: hidden;
+  font-size: 1.5rem;
     img{
       height: 80%;
       max-width: 100%;
