@@ -22,7 +22,7 @@ const Home = () => {
   if (error) return <p>Error :(</p>;
   return (
     <>
-      <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore} />
+      <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore} data-testid='nav-button'/>
       <HomeContainer
       variants={slideUp}
       initial='hidden'

@@ -13,7 +13,7 @@ const Header = () => {
     >
       <Logo>
         <Link to='/'>
-        <VscLibrary/>
+        <VscLibrary data-testid='home-logo'/>
         </Link>
       </Logo>
       <MenuItems>
