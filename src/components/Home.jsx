@@ -22,14 +22,14 @@ const Home = () => {
   if (error) return <p>Error :(</p>;
   return (
     <>
-      <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore} data-testid='nav-button'/>
+      <NavButtons data={data} isLoadingMore={isLoadingMore} setIsLoadingMore={setIsLoadingMore} fetchMore={fetchMore} data-testid="nav-button"/>
       <HomeContainer
       variants={slideUp}
       initial='hidden'
       animate='show'
       >
         {data.allVideos.items.map(video => (
-          <Card key={video.id} to={`/${video.id}`}>
+          <Card key={video.id} to={`/${video.id}`} data-testid='card'>
               <img 
               src={video.poster ? video.poster : 'https://pbs.twimg.com/profile_images/452961105522872320/eFX_I4Nt.jpeg'} 
               alt="card-poster" 
